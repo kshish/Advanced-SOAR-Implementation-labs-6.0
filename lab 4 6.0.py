@@ -254,8 +254,8 @@ def list_peers_3(action=None, success=None, container=None, results=None, handle
     parameters = []
 
     parameters.append({
-        "queryResultData": run_query_1_result_item_0,
         "containerID": id_value,
+        "queryResultData": run_query_1_result_item_0,
     })
 
     ################################################################################
@@ -268,7 +268,35 @@ def list_peers_3(action=None, success=None, container=None, results=None, handle
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="ASI/list_peers", parameters=parameters, name="list_peers_3")
+    phantom.custom_function(custom_function="ASI/list_peers", parameters=parameters, name="list_peers_3", callback=playbook_create_events_for_peers_soar60_1)
+
+    return
+
+
+@phantom.playbook_block()
+def playbook_create_events_for_peers_soar60_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("playbook_create_events_for_peers_soar60_1() called")
+
+    list_peers_3__result = phantom.collect2(container=container, datapath=["list_peers_3:custom_function_result.data.listName"])
+
+    list_peers_3_data_listname = [item[0] for item in list_peers_3__result]
+
+    inputs = {
+        "peerlist": list_peers_3_data_listname,
+    }
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    # call playbook "ASI/Create Events for Peers_SOAR60", returns the playbook_run_id
+    playbook_run_id = phantom.playbook("ASI/Create Events for Peers_SOAR60", container=container, inputs=inputs)
 
     return
 

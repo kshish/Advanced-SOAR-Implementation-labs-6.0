@@ -61,9 +61,16 @@
                     "sourcePort": "7_out",
                     "targetNode": "10",
                     "targetPort": "10_in"
+                },
+                {
+                    "id": "port_10_to_port_12",
+                    "sourceNode": "10",
+                    "sourcePort": "10_out",
+                    "targetNode": "12",
+                    "targetPort": "12_in"
                 }
             ],
-            "hash": "567a60a14330e2640d0b38ce4007cc7ecf107598",
+            "hash": "6726d96ba2e03684a5e695edc9111d22a5849b0b",
             "nodes": {
                 "0": {
                     "data": {
@@ -79,7 +86,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 1000,
-                    "y": 319.9999999999999
+                    "y": 319.9999999999998
                 },
                 "1": {
                     "data": {
@@ -94,8 +101,8 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 1000,
-                    "y": 1460
+                    "x": 1020,
+                    "y": 1660
                 },
                 "10": {
                     "data": {
@@ -159,6 +166,36 @@
                     "warnings": {},
                     "x": 980,
                     "y": 1284.5
+                },
+                "12": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "playbook_Create_Events_for_Peers_SOAR60_1",
+                        "id": "12",
+                        "inputs": {
+                            "peerList": {
+                                "datapaths": [
+                                    "list_peers_3:custom_function_result.data.listName"
+                                ],
+                                "deduplicate": false
+                            }
+                        },
+                        "playbookName": "Create Events for Peers_SOAR60",
+                        "playbookRepo": 5,
+                        "playbookRepoName": "ASI",
+                        "playbookType": "data",
+                        "synchronous": false,
+                        "type": "playbook"
+                    },
+                    "errors": {},
+                    "id": "12",
+                    "type": "playbook",
+                    "warnings": {},
+                    "x": 980,
+                    "y": 1444.5
                 },
                 "3": {
                     "data": {
@@ -564,7 +601,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2023-05-31T06:07:37.967806+00:00",
+    "create_time": "2023-05-31T06:45:07.838080+00:00",
     "draft_mode": false,
     "labels": [
         "notable",
