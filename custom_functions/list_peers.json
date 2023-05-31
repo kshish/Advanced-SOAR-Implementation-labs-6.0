@@ -1,0 +1,32 @@
+{
+    "create_time": "2023-05-31T06:00:25.065513+00:00",
+    "custom_function_id": "f8b6c75ebb1fc7dbc7c491a9a2409e3f8e9c0130",
+    "description": "",
+    "draft_mode": false,
+    "inputs": [
+        {
+            "contains_type": [],
+            "description": "",
+            "input_type": "list",
+            "name": "queryResultData",
+            "placeholder": ""
+        },
+        {
+            "contains_type": [],
+            "description": "",
+            "input_type": "list",
+            "name": "containerID",
+            "placeholder": ""
+        }
+    ],
+    "outputs": [
+        {
+            "contains_type": [],
+            "data_path": "listName",
+            "description": ""
+        }
+    ],
+    "outputs_type": "item",
+    "platform_version": "5.3.0.84310",
+    "python_version": "3"
+}
