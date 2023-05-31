@@ -120,13 +120,14 @@ def run_query_1(action=None, success=None, container=None, results=None, handle=
 def format_query_results(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug("format_query_results() called")
 
-    template = """%%\npeer: {0} with {1} priority, communicated {2} times\n%%"""
+    template = """Host communicated with {3} servers\n\n%%\npeer: {0} with {1} priority, communicated {2} times\n%%"""
 
     # parameter list for template variable replacement
     parameters = [
         "run_query_1:action_result.data.*.peer",
         "run_query_1:action_result.data.*.priority",
-        "run_query_1:action_result.data.*.count"
+        "run_query_1:action_result.data.*.count",
+        "run_query_1:action_result.summary.total_events"
     ]
 
     ################################################################################

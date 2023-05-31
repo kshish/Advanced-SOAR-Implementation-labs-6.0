@@ -63,7 +63,7 @@
                     "targetPort": "10_in"
                 }
             ],
-            "hash": "9eacedc9e26f10b87fac6f60a7becad39b6fa99b",
+            "hash": "567a60a14330e2640d0b38ce4007cc7ecf107598",
             "nodes": {
                 "0": {
                     "data": {
@@ -413,9 +413,10 @@
                         "parameters": [
                             "run_query_1:action_result.data.*.peer",
                             "run_query_1:action_result.data.*.priority",
-                            "run_query_1:action_result.data.*.count"
+                            "run_query_1:action_result.data.*.count",
+                            "run_query_1:action_result.summary.total_events"
                         ],
-                        "template": "%%\npeer: {0} with {1} priority, communicated {2} times\n%%",
+                        "template": "Host communicated with {3} servers\n\n%%\npeer: {0} with {1} priority, communicated {2} times\n%%",
                         "type": "format"
                     },
                     "errors": {},
@@ -563,7 +564,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2023-05-31T06:02:08.045131+00:00",
+    "create_time": "2023-05-31T06:07:37.967806+00:00",
     "draft_mode": false,
     "labels": [
         "notable",
