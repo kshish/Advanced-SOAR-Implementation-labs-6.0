@@ -51,14 +51,14 @@ def list_merge_1(action=None, success=None, container=None, results=None, handle
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/list_merge", parameters=parameters, name="list_merge_1", callback=format_2)
+    phantom.custom_function(custom_function="community/list_merge", parameters=parameters, name="list_merge_1", callback=format_spl)
 
     return
 
 
 @phantom.playbook_block()
-def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug("format_2() called")
+def format_spl(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("format_spl() called")
 
     template = """find_peers server=\"{0}\"\n"""
 
@@ -77,7 +77,7 @@ def format_2(action=None, success=None, container=None, results=None, handle=Non
     ## Custom Code End
     ################################################################################
 
-    phantom.format(container=container, template=template, parameters=parameters, name="format_2")
+    phantom.format(container=container, template=template, parameters=parameters, name="format_spl")
 
     run_query_1(container=container)
 
@@ -90,13 +90,13 @@ def run_query_1(action=None, success=None, container=None, results=None, handle=
 
     # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
 
-    format_2 = phantom.get_format_data(name="format_2")
+    format_spl = phantom.get_format_data(name="format_spl")
 
     parameters = []
 
-    if format_2 is not None:
+    if format_spl is not None:
         parameters.append({
-            "query": format_2,
+            "query": format_spl,
             "command": "savedsearch",
             "search_mode": "smart",
         })
@@ -111,14 +111,14 @@ def run_query_1(action=None, success=None, container=None, results=None, handle=
     ## Custom Code End
     ################################################################################
 
-    phantom.act("run query", parameters=parameters, name="run_query_1", assets=["esa100"], callback=format_3)
+    phantom.act("run query", parameters=parameters, name="run_query_1", assets=["esa100"], callback=format_query_results)
 
     return
 
 
 @phantom.playbook_block()
-def format_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug("format_3() called")
+def format_query_results(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("format_query_results() called")
 
     template = """%%\npeer: {0} with {1} priority, communicated {2} times\n%%"""
 
@@ -139,7 +139,7 @@ def format_3(action=None, success=None, container=None, results=None, handle=Non
     ## Custom Code End
     ################################################################################
 
-    phantom.format(container=container, template=template, parameters=parameters, name="format_3")
+    phantom.format(container=container, template=template, parameters=parameters, name="format_query_results")
 
     add_comment_2(container=container)
     format_container_url(container=container)
@@ -158,12 +158,12 @@ def update_event_1(action=None, success=None, container=None, results=None, hand
         template="""{0}\n\n{1}""",
         parameters=[
             "format_container_url:formatted_data",
-            "format_3:formatted_data"
+            "format_query_results:formatted_data"
         ])
 
     container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.cef.event_id","artifact:*.id"])
     format_container_url = phantom.get_format_data(name="format_container_url")
-    format_3 = phantom.get_format_data(name="format_3")
+    format_query_results = phantom.get_format_data(name="format_query_results")
 
     parameters = []
 
@@ -196,7 +196,7 @@ def update_event_1(action=None, success=None, container=None, results=None, hand
 def add_comment_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug("add_comment_2() called")
 
-    format_3 = phantom.get_format_data(name="format_3")
+    format_query_results = phantom.get_format_data(name="format_query_results")
 
     ################################################################################
     ## Custom Code Start
@@ -208,7 +208,7 @@ def add_comment_2(action=None, success=None, container=None, results=None, handl
     ## Custom Code End
     ################################################################################
 
-    phantom.comment(container=container, comment=format_3)
+    phantom.comment(container=container, comment=format_query_results)
 
     return
 
@@ -217,7 +217,7 @@ def add_comment_2(action=None, success=None, container=None, results=None, handl
 def format_container_url(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug("format_container_url() called")
 
-    template = """This container in SOAR {0}\n"""
+    template = """This container in SOAR https://esachuryn100.students.splunk.education{0}\n"""
 
     # parameter list for template variable replacement
     parameters = [
