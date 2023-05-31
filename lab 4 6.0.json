@@ -35,21 +35,35 @@
                     "targetPort": "6_in"
                 },
                 {
-                    "id": "port_6_to_port_7",
-                    "sourceNode": "6",
-                    "sourcePort": "6_out",
-                    "targetNode": "7",
-                    "targetPort": "7_in"
-                },
-                {
                     "id": "port_7_to_port_1",
                     "sourceNode": "7",
                     "sourcePort": "7_out",
                     "targetNode": "1",
                     "targetPort": "1_in"
+                },
+                {
+                    "id": "port_6_to_port_8",
+                    "sourceNode": "6",
+                    "sourcePort": "6_out",
+                    "targetNode": "8",
+                    "targetPort": "8_in"
+                },
+                {
+                    "id": "port_6_to_port_9",
+                    "sourceNode": "6",
+                    "sourcePort": "6_out",
+                    "targetNode": "9",
+                    "targetPort": "9_in"
+                },
+                {
+                    "id": "port_9_to_port_7",
+                    "sourceNode": "9",
+                    "sourcePort": "9_out",
+                    "targetNode": "7",
+                    "targetPort": "7_in"
                 }
             ],
-            "hash": "50212825e4ff111a4c7850efb0b88643c3aea6d2",
+            "hash": "68203c2821c28d2fc98c68a141f48676ac395850",
             "nodes": {
                 "0": {
                     "data": {
@@ -81,7 +95,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 1000,
-                    "y": 1240
+                    "y": 1360
                 },
                 "3": {
                     "data": {
@@ -361,7 +375,13 @@
                         "functionName": "update_event_1",
                         "id": "7",
                         "parameters": {
-                            "comment": "format_3:formatted_data",
+                            "comment": {
+                                "parameters": [
+                                    "format_container_url:formatted_data",
+                                    "format_3:formatted_data"
+                                ],
+                                "template": "{0}\n\n{1}"
+                            },
                             "event_ids": "artifact:*.cef.event_id",
                             "status": "in progress"
                         },
@@ -378,7 +398,92 @@
                     "type": "action",
                     "warnings": {},
                     "x": 980,
-                    "y": 1024.5
+                    "y": 1160
+                },
+                "8": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 2,
+                        "functionName": "add_comment_2",
+                        "id": "8",
+                        "selectMore": false,
+                        "tab": "apis",
+                        "type": "utility",
+                        "utilities": {
+                            "comment": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "description": "",
+                                        "label": "comment",
+                                        "name": "comment",
+                                        "placeholder": "Enter a comment",
+                                        "renderType": "datapath",
+                                        "required": true
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "container",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "author",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "trace",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "add comment",
+                                "name": "comment"
+                            }
+                        },
+                        "utilityType": "api",
+                        "values": {
+                            "comment": {
+                                "_internal": [
+                                    "container",
+                                    "author",
+                                    "trace"
+                                ],
+                                "comment": "format_3:formatted_data"
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "8",
+                    "type": "utility",
+                    "warnings": {},
+                    "x": 1280,
+                    "y": 1020
+                },
+                "9": {
+                    "data": {
+                        "advanced": {
+                            "customName": "format container URL",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "format_container_url",
+                        "id": "9",
+                        "parameters": [
+                            "container:url"
+                        ],
+                        "template": "This container in SOAR {0}\n",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "9",
+                    "type": "format",
+                    "warnings": {},
+                    "x": 980,
+                    "y": 1040
                 }
             },
             "notes": ""
@@ -390,7 +495,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2023-05-31T05:24:37.008141+00:00",
+    "create_time": "2023-05-31T05:29:50.177375+00:00",
     "draft_mode": false,
     "labels": [
         "notable",

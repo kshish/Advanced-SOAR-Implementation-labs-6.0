@@ -141,7 +141,8 @@ def format_3(action=None, success=None, container=None, results=None, handle=Non
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_3")
 
-    update_event_1(container=container)
+    add_comment_2(container=container)
+    format_container_url(container=container)
 
     return
 
@@ -152,7 +153,16 @@ def update_event_1(action=None, success=None, container=None, results=None, hand
 
     # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
 
+    comment_formatted_string = phantom.format(
+        container=container,
+        template="""{0}\n\n{1}""",
+        parameters=[
+            "format_container_url:formatted_data",
+            "format_3:formatted_data"
+        ])
+
     container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.cef.event_id","artifact:*.id"])
+    format_container_url = phantom.get_format_data(name="format_container_url")
     format_3 = phantom.get_format_data(name="format_3")
 
     parameters = []
@@ -162,7 +172,7 @@ def update_event_1(action=None, success=None, container=None, results=None, hand
         if container_artifact_item[0] is not None:
             parameters.append({
                 "status": "in progress",
-                "comment": format_3,
+                "comment": comment_formatted_string,
                 "event_ids": container_artifact_item[0],
                 "context": {'artifact_id': container_artifact_item[1]},
             })
@@ -178,6 +188,55 @@ def update_event_1(action=None, success=None, container=None, results=None, hand
     ################################################################################
 
     phantom.act("update event", parameters=parameters, name="update_event_1", assets=["esa100"])
+
+    return
+
+
+@phantom.playbook_block()
+def add_comment_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("add_comment_2() called")
+
+    format_3 = phantom.get_format_data(name="format_3")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.comment(container=container, comment=format_3)
+
+    return
+
+
+@phantom.playbook_block()
+def format_container_url(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("format_container_url() called")
+
+    template = """This container in SOAR {0}\n"""
+
+    # parameter list for template variable replacement
+    parameters = [
+        "container:url"
+    ]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.format(container=container, template=template, parameters=parameters, name="format_container_url")
+
+    update_event_1(container=container)
 
     return
 
