@@ -35,13 +35,6 @@
                     "targetPort": "6_in"
                 },
                 {
-                    "id": "port_7_to_port_1",
-                    "sourceNode": "7",
-                    "sourcePort": "7_out",
-                    "targetNode": "1",
-                    "targetPort": "1_in"
-                },
-                {
                     "id": "port_6_to_port_8",
                     "sourceNode": "6",
                     "sourcePort": "6_out",
@@ -61,9 +54,16 @@
                     "sourcePort": "9_out",
                     "targetNode": "7",
                     "targetPort": "7_in"
+                },
+                {
+                    "id": "port_7_to_port_10",
+                    "sourceNode": "7",
+                    "sourcePort": "7_out",
+                    "targetNode": "10",
+                    "targetPort": "10_in"
                 }
             ],
-            "hash": "7b631f4198fe9d52c6553fb20a430a63f2b4c40f",
+            "hash": "9eacedc9e26f10b87fac6f60a7becad39b6fa99b",
             "nodes": {
                 "0": {
                     "data": {
@@ -95,7 +95,70 @@
                     "type": "end",
                     "warnings": {},
                     "x": 1000,
-                    "y": 1360
+                    "y": 1460
+                },
+                "10": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "customFunction": {
+                            "draftMode": false,
+                            "name": "list_peers",
+                            "repoName": "ASI"
+                        },
+                        "functionId": 3,
+                        "functionName": "list_peers_3",
+                        "id": "10",
+                        "selectMore": false,
+                        "type": "utility",
+                        "utilities": {
+                            "list_peers": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "dataTypes": [],
+                                        "description": "",
+                                        "inputType": "list",
+                                        "label": "queryResultData",
+                                        "name": "queryResultData",
+                                        "placeholder": "",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "",
+                                        "inputType": "list",
+                                        "label": "containerID",
+                                        "name": "containerID",
+                                        "placeholder": "",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "list_peers",
+                                "name": "list_peers"
+                            }
+                        },
+                        "utilityType": "custom_function",
+                        "values": {
+                            "list_peers": {
+                                "containerID": [
+                                    "container:id"
+                                ],
+                                "queryResultData": [
+                                    "run_query_1:action_result.data"
+                                ]
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "10",
+                    "type": "utility",
+                    "warnings": {},
+                    "x": 980,
+                    "y": 1284.5
                 },
                 "3": {
                     "data": {
@@ -500,7 +563,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2023-05-31T05:42:48.887138+00:00",
+    "create_time": "2023-05-31T06:02:08.045131+00:00",
     "draft_mode": false,
     "labels": [
         "notable",
