@@ -4,7 +4,7 @@
     "category": "Uncategorized",
     "coa": {
         "data": {
-            "description": "",
+            "description": "lab 4 - query Splunk and update notable event status and add comment",
             "edges": [
                 {
                     "id": "port_0_to_port_3",
@@ -49,7 +49,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "3f00f6ce32df70e391ec02e080ae890bd41888b5",
+            "hash": "795cc0d4be0e466a2103b09c0940bd0451ce69a6",
             "nodes": {
                 "0": {
                     "data": {
@@ -390,7 +390,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2023-05-31T05:17:53.457144+00:00",
+    "create_time": "2023-05-31T05:18:13.013352+00:00",
     "draft_mode": false,
     "labels": [
         "notable"
