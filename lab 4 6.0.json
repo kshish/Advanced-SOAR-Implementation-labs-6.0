@@ -63,7 +63,7 @@
                     "targetPort": "7_in"
                 }
             ],
-            "hash": "5616e4b8bca7ffacc46fb1c67bc2537bceae40af",
+            "hash": "8ad533e21c0e44938eb7239febaab632b7e4eaa4",
             "nodes": {
                 "0": {
                     "data": {
@@ -480,7 +480,7 @@
                         "parameters": [
                             "container:url"
                         ],
-                        "template": "This container in SOAR https://esachuryn100.students.splunk.education{0}\n",
+                        "template": "This container in SOAR https://soar-test-1685029423-100.students.splunk.education/{0}\n",
                         "type": "format"
                     },
                     "errors": {},
@@ -500,7 +500,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2023-05-31T05:33:29.366732+00:00",
+    "create_time": "2023-05-31T05:35:21.481532+00:00",
     "draft_mode": false,
     "labels": [
         "notable",
