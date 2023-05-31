@@ -49,7 +49,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "cae5b6c1a83825881336a28ea9f002fb97e84773",
+            "hash": "50212825e4ff111a4c7850efb0b88643c3aea6d2",
             "nodes": {
                 "0": {
                     "data": {
@@ -334,7 +334,7 @@
                             "run_query_1:action_result.data.*.priority",
                             "run_query_1:action_result.data.*.count"
                         ],
-                        "template": "%%\npeer: {0} with {1} priority, communicated {2} times\n",
+                        "template": "%%\npeer: {0} with {1} priority, communicated {2} times\n%%",
                         "type": "format"
                     },
                     "errors": {},
@@ -390,7 +390,7 @@
         "schema": "5.0.10",
         "version": "6.0.1.123902"
     },
-    "create_time": "2023-05-31T05:18:13.013352+00:00",
+    "create_time": "2023-05-31T05:24:37.008141+00:00",
     "draft_mode": false,
     "labels": [
         "notable",
