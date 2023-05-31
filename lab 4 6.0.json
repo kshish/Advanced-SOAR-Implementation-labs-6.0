@@ -49,7 +49,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "795cc0d4be0e466a2103b09c0940bd0451ce69a6",
+            "hash": "cae5b6c1a83825881336a28ea9f002fb97e84773",
             "nodes": {
                 "0": {
                     "data": {
@@ -393,7 +393,8 @@
     "create_time": "2023-05-31T05:18:13.013352+00:00",
     "draft_mode": false,
     "labels": [
-        "notable"
+        "notable",
+        "malware"
     ],
     "tags": []
 }
