@@ -217,7 +217,7 @@ def add_comment_2(action=None, success=None, container=None, results=None, handl
 def format_container_url(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug("format_container_url() called")
 
-    template = """This container in SOAR https://soar-test-1685029423-100.students.splunk.education/{0}\n"""
+    template = """This container in SOAR <a href=\"https://soar-test-1685029423-100.students.splunk.education/{0}\">SOAR Container</a>\n"""
 
     # parameter list for template variable replacement
     parameters = [
