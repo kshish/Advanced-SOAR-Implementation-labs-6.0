@@ -1,0 +1,25 @@
+{
+    "create_time": "2023-05-31T06:37:28.624376+00:00",
+    "custom_function_id": "1f470d5b8a5d7f811db8a6bee50e8f3e6bffef40",
+    "description": "",
+    "draft_mode": false,
+    "inputs": [
+        {
+            "contains_type": [],
+            "description": "",
+            "input_type": "item",
+            "name": "listName",
+            "placeholder": ""
+        }
+    ],
+    "outputs": [
+        {
+            "contains_type": [],
+            "data_path": "listContents",
+            "description": ""
+        }
+    ],
+    "outputs_type": "item",
+    "platform_version": "5.3.0.84310",
+    "python_version": "3"
+}
